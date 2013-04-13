@@ -1,13 +1,8 @@
-package Collector.Resources;
+package org.dracula.collector.resources;
 
-/**
- * @Author <Manner>
- * - Edited
- */
-
+import org.powerbot.core.script.util.Timer;
 import org.powerbot.game.api.methods.tab.Skills;
 import org.powerbot.game.api.util.Time;
-import org.powerbot.game.api.util.Timer;
 
 public class SkillCalculations {
 
@@ -16,7 +11,7 @@ public class SkillCalculations {
     private int startLvl;
     private static Timer t = null;
 
-    public SkillCalculations(int skill) {
+    public SkillCalculations(final int skill) {
         this.skill = skill;
         this.startExp = Skills.getExperience(skill);
         this.startLvl = Skills.getRealLevel(skill);
@@ -56,10 +51,10 @@ public class SkillCalculations {
     }
 
     public int getPercentToLvl() {
-        int lastXPNeed = Skills.getExperienceRequired(getLvl());
-        int nextXPNeed = Skills.getExperienceRequired(getLvl() + 1);
-        double totalXPNeed = nextXPNeed - lastXPNeed;
-        double gainFromLevel = getCurrentExp() - lastXPNeed;
+        final int lastXPNeed = Skills.getExperienceRequired(getLvl());
+        final int nextXPNeed = Skills.getExperienceRequired(getLvl() + 1);
+        final double totalXPNeed = nextXPNeed - lastXPNeed;
+        final double gainFromLevel = getCurrentExp() - lastXPNeed;
         return (int) ((gainFromLevel / totalXPNeed) * 100);
     }
 

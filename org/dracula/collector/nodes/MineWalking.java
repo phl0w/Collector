@@ -1,17 +1,16 @@
-package Collector.Nodes;
+package org.dracula.collector.nodes;
 
-import Collector.Resources.Methods;
-import Collector.Resources.MineLocation;
-import Collector.Resources.Variables;
+import org.dracula.collector.resources.Methods;
+import org.dracula.collector.resources.MineLocation;
+import org.dracula.collector.resources.Variables;
 import org.powerbot.core.script.job.state.Node;
 import org.powerbot.game.api.methods.interactive.Players;
 import org.powerbot.game.api.methods.tab.Inventory;
 
-
 public class MineWalking extends Node {
 
     public boolean activate() {
-        return !Inventory.isFull() && !MineLocation.VARROCKWEST_IMINE.contains(Players.getLocal().getLocation());
+        return !Inventory.isFull() && !MineLocation.VARROCKWEST_IMINE.contains(Players.getLocal());
     }
 
     @Override
